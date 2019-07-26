@@ -2,36 +2,59 @@ body {
     background: #0f011b;
     color: #Fefefe;
 }
+
 *{
     box-sizing: border-box;
 }
-.input {
+
+.main{
+    display: flex;
+    flex-direction: column;
+}
+
+.firstrow{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.firstrow .entrace{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.firstrow .entrace input{
     border: 1px solid #Fefefe;
     outline: none;
-    line-height: 40px;
-    height: 40px;
-    border-radius: 20px 0 0 20px;
+    border-radius: 20px;
     background: transparent;
     color: #Fefefe;
     flex:1;
-    padding: 20px;
+    padding: 5px;
 }
 
-button {
+.firstrow .entrace button{
     cursor: pointer;
-}
-
-.input+button{
     background: #Fefefe;
-    border-radius: 0 20px 20px 0;
+    border-radius: 20px;
     border: 1px solid #Fefefe;
+    padding: 5px;
     outline: none;
-    padding: 0 20px;
     transition: 600ms all ease-in-out;
 }
 
-.input+button:disabled{
-    background: #Fefefe20;
+.order-list{
+    padding: 0;
+    list-style: none;
+    width: 100%;
+}
+
+.order-item{
+    display: flex;
+    width: 100%;
+    padding: 10px 20px;
+    align-items: center;
 }
 
 .toDo-list{
