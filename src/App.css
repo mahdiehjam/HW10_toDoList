@@ -44,17 +44,42 @@ body {
     transition: 600ms all ease-in-out;
 }
 
+
 .order-list{
-    padding: 0;
+    padding: 10px;
     list-style: none;
-    width: 100%;
+    
+}
+
+.order-list:first-of-type {
+    margin-bottom: 0;
+}
+
+.order-list:last-of-type {
+    margin-top: 0;
 }
 
 .order-item{
     display: flex;
-    width: 100%;
-    padding: 10px 20px;
-    align-items: center;
+    justify-content: space-between;
+    padding: 10px 62px;
+    align-content: center;
+}
+
+
+.order-item button{
+    cursor: pointer;
+    background: transparent;
+    color: #Fefefe;
+    border-radius: 20px;
+    border: 1px solid #Fefefe;
+    padding: 5px 10px;
+    outline: none;
+    transition: 600ms all ease-in-out;
+}
+
+.order-item button:hover{
+    background: #Fefefe80
 }
 
 .toDo-list{
