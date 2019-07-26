@@ -19,8 +19,14 @@ export default class App extends Component {
     }
     const {orders} = this.state;
     this.setState({
-      orders: [...orders,order]
+      orders: [...orders,{text:order,id:new Date().getTime()}],
+      order: ""
     });
+  }
+
+  changeHandler = (event) =>{
+    const{name,value} = event.target;
+    this.setState({[name]:value});
   }
 
 
@@ -30,19 +36,19 @@ export default class App extends Component {
         <form className="firstrow" onSubmit={this.submitHandler}>
         <div className="entrace">
           <h5>First Name</h5>
-          <input type="text" name="firstname" placeholder="First Name*"/>
+          <input onChange={this.changeHandler} value={this.state.order} type="text" name="firstname" placeholder="First Name*"/>
         </div>
         <div className="entrace">
           <h5>Last Name</h5>
-          <input type="text" name="lastname" placeholder="Last Name*"/>
+          <input onChange={this.changeHandler} value={this.state.order} type="text" name="lastname" placeholder="Last Name*"/>
         </div>
         <div className="entrace">
           <h5>Username</h5>
-          <input type="text" name="username" placeholder="Username*"/>
+          <input onChange={this.changeHandler} value={this.state.order} type="text" name="username" placeholder="Username*"/>
         </div>
         <div className="entrace">
           <h5>Gender</h5>
-          <input type="checkbox" name="gender"/>
+          <input onChange={this.changeHandler} value={this.state.order} type="checkbox" name="gender"/>
         </div>
         <div className="entrace">
           <h5>Action</h5>
@@ -50,14 +56,14 @@ export default class App extends Component {
         </div>
         </form>
         <ul className="order-list">
-          {this.state.orders.map((order,index)=><li className="order-item" key={index}>
-          <span>{order.firstname}</span>
+          {this.state.orders.map(order=><li className="order-item" key={order.id}>
+          <span>{order.text.firstname}</span>
           <span></span>
-          <span>{order.lastname}</span>
+          <span>{order.text.lastname}</span>
           <span></span>
-          <span>{order.username}</span>
+          <span>{order.text.username}</span>
           <span></span>
-          <span>{order.gender}</span>
+          <span>{order.text.gender}</span>
           <button>X</button>
           </li>)}
         </ul>
