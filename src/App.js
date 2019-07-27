@@ -20,13 +20,19 @@ export default class App extends Component {
     const {orders} = this.state;
     this.setState({
       orders: [...orders,{text:order,id:new Date().getTime()}],
-      order: ""
     });
   }
 
   changeHandler = (event) =>{
     const{name,value} = event.target;
     this.setState({[name]:value});
+  }
+
+  deleteHandler = id => ()=>{
+    const {orders} = this.state;
+    const idx = orders.findIndex(order=> order.id === id);
+    orders.splice(idx,1);
+    this.setState({orders});
   }
 
 
@@ -64,7 +70,7 @@ export default class App extends Component {
           <span>{order.text.username}</span>
           <span></span>
           <span>{order.text.gender}</span>
-          <button>X</button>
+          <button onClick={this.deleteHandler(order.id)}>X</button>
           </li>)}
         </ul>
       </div>
